@@ -17,7 +17,6 @@ The dataset which is used is mnist dataset.
 ## Convolution Autoencoder Network Model
 ![nn](https://user-images.githubusercontent.com/77089743/201087716-0a56206c-d6b4-448f-ac99-7b6dbcbba3c0.jpg)
 
-
 ## DESIGN STEPS
 
 ### STEP 1:
@@ -44,11 +43,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 (x_train, _), (x_test, _) = mnist.load_data()
-
 x_train.shape
-
-(60000, 28, 28)
-
 x_train_scaled = x_train.astype('float32') / 255.
 x_test_scaled = x_test.astype('float32') / 255.
 x_train_scaled = np.reshape(x_train_scaled, (len(x_train_scaled), 28, 28, 1))
@@ -101,11 +96,7 @@ autoencoder.fit(x_train_noisy, x_train_scaled,
                 shuffle=True,
                 validation_data=(x_test_noisy, x_test_scaled))
 
-
-
 decoded_imgs = autoencoder.predict(x_test_noisy)
-
-
 n = 10
 plt.figure(figsize=(20, 4))
 for i in range(1, n + 1):
@@ -131,8 +122,6 @@ for i in range(1, n + 1):
     ax.get_yaxis().set_visible(False)
 plt.show()
 ```
-
-
 ## OUTPUT
 
 ### Training Loss, Validation Loss Vs Iteration Plot
